@@ -16,6 +16,7 @@ artifacts:
 When getting started, we encourage use of the included Docker container definition.  All of our code, to include benchmarks, should compile and run without trouble using this container definition.
 
 If your use of this software leads to a research publication, please cite our TACO paper `["Simplifying Transactional Memory Support in C++", by PanteA Zardoshti, Tingzhe Zhou, Pavithra Balaji, Michel L. Scott, and Michael Spear. ACM Transactions on Architecture and Code Optimization (TACO), 2019.]`
+
 Also, our PACT paper `["Optimizing Persistent Memory Transactions", by PanteA Zardoshti, Tingzhe Zhou, and Micha\ el Spear. International Conference on Parallel Architectures and Compilation Techniques(PACT), 2019.]`
 
 ## Build Instructions
