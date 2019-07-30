@@ -34,7 +34,7 @@
 /// TxThread is a shorthand for the instantiated version of the TM algorithm, so
 /// that we can use common macros to define the API:
 typedef P_RingMW<
-    RING_SIZE, SSEBitFilter<RING_FILTER_SIZE, 32>,
+    RING_SIZE, SSEBitFilter<RING_FILTER_SIZE, 5>,
     P_CoarseRedoLog<32, false, false>, BasicEpochManager<MAX_THREADS>,
     HourglassBackoffCM<ABORTS_THRESHOLD, BACKOFF_MIN, BACKOFF_MAX>,
     OptimizedStackFrameManager, EnhancedPersistentAllocationManager>

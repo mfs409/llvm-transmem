@@ -21,7 +21,7 @@ for i in $THREADS
 do
     for t in $PTMLIB
     do
-        echo "Running vacation_low with $t and $i threads ..."
+        echo "Running vacation_high with $t and $i threads ..."
         numactl -N 0 ./obj64/vacation_$t -n4 -q60 -u90 -r1048576 -t4194304 -c $i >> vacationh_f2.txt	
 	echo -n "," >> vacationh_f2.txt
     done

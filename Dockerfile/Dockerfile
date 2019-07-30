@@ -15,7 +15,7 @@ RUN apt-get update -y
 
 # Upgrade and install
 RUN apt-get upgrade -y
-RUN apt-get install -y git man curl build-essential cmake emacs-nox screen dos2unix vim python2.7 python-matplotlib clang-6.0 libclang-common-6.0-dev libclang-6.0-dev libclang1-6.0 libclang1-6.0-dbg libllvm6.0 libllvm6.0-dbg lldb-6.0 llvm-6.0 llvm-6.0-dev llvm-6.0-runtime clang-format-6.0 python-clang-6.0 lld-6.0 g++-multilib gdb
+RUN apt-get install -y git man curl build-essential cmake emacs-nox screen dos2unix vim python2.7 python-matplotlib clang-6.0 libclang-common-6.0-dev libclang-6.0-dev libclang1-6.0 libclang1-6.0-dbg libllvm6.0 libllvm6.0-dbg lldb-6.0 llvm-6.0 llvm-6.0-dev llvm-6.0-runtime clang-format-6.0 python-clang-6.0 lld-6.0 g++-multilib gdb libevent-dev
 
 # To use this Dockerfile
 # 1 - Make an image named llvm-6.0

@@ -34,7 +34,7 @@
 /// TxThread is a shorthand for the instantiated version of the TM algorithm, so
 /// that we can use common macros to define the API:
 typedef P_OrecLazy<
-    OrecTable<NUM_STRIPES, 32>, P_RedoLog<32, false, false>,
+    OrecTable<NUM_STRIPES, 5>, P_RedoLog<32, false, false>,
     QuiesceEpochManager<MAX_THREADS>,
     HourglassBackoffCM<ABORTS_THRESHOLD, BACKOFF_MIN, BACKOFF_MAX>,
     OptimizedStackFrameManager, EnhancedPersistentAllocationManager>

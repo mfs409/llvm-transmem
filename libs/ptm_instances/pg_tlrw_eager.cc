@@ -44,7 +44,7 @@
 ///
 /// NB: P_TLRWEager can livelock with ExpBackoffCM CM on some STAMP benchmarks
 typedef P_TLRWEager<
-    BytelockTable<NUM_STRIPES, 32, BYTELOCK_MAX_THREADS>, P_UndoLog,
+    BytelockTable<NUM_STRIPES, 5, BYTELOCK_MAX_THREADS>, P_UndoLog,
     BasicEpochManager<MAX_THREADS>,
     HourglassBackoffCM<ABORTS_THRESHOLD, BACKOFF_MIN, BACKOFF_MAX>,
     OptimizedStackFrameManager, EnhancedPersistentAllocationManager,
