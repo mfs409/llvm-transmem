@@ -1,4 +1,8 @@
 #!/bin/bash
+mkdir -p result/data
+mkdir -p result/plots
+mkdir -p result/plots/fig2
+mkdir -p result/plots/fig3
 
 case "$1" in
     b)
