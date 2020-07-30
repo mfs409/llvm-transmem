@@ -1,0 +1,14 @@
+[information]
+exe: build_rtm/vacation
+shown_name: stamp-vacation_high
+arguments: "-n4 -q60 -u90 -r4194304 -t16777216 -c$THREADS$"
+parallel: omp
+
+[environment]
+
+[sampling]
+cycles?precise--2: 40000000
+RTM_RETIRED?ABORTED: 5000
+RTM_RETIRED?COMMIT: 2000
+MEM_UOPS_RETIRED?ALL_STORES: 10000000
+

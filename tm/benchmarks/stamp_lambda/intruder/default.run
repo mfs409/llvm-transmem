@@ -1,0 +1,12 @@
+[information]
+exe: build_rtm/intruder
+shown_name: stamp-intruder
+arguments: "-a10 -l256 -n524288 -s1 -t$THREADS$"
+
+[environment]
+
+[sampling]
+RTM_RETIRED?COMMIT: 5000
+RTM_RETIRED?ABORTED: 10000
+cycles?precise--2: 100000000
+MEM_UOPS_RETIRED?ALL_STORES: 500000

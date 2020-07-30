@@ -1,0 +1,12 @@
+[information]
+exe: build_rtm/labyrinth
+shown_name: stamp-labyrinth
+arguments: "-i $TSX_INPUT$/stamp/labyrinth/random-x512-y512-z7-n512.txt -t$THREADS$"
+
+[environment]
+
+[sampling]
+cycles?precise--2: 20000000
+RTM_RETIRED?ABORTED: 10
+RTM_RETIRED?COMMIT: 10
+MEM_UOPS_RETIRED?ALL_STORES: 1000000

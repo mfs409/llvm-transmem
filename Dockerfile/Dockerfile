@@ -1,29 +1,31 @@
-# Dockerfile to build llvm-6.0 developer image
+# Dockerfile to build llvm-10 developer image
+FROM ubuntu:latest
 
-FROM ubuntu
-
-MAINTAINER Michael Spear (spear@cse.lehigh.edu)
-
-# Initialize repos
+# Grab wget, so that we can add the LLVM PPA
 RUN apt-get update -y
+RUN apt-get install wget gnupg gnupg2 gnupg1 -y
 
-# Grab wget
-RUN apt-get install wget -y
+# Add PPA for LLVM
+RUN echo deb http://apt.llvm.org/focal/ llvm-toolchain-focal-10 main >> /etc/apt/sources.list 
+RUN echo deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-10 main >> /etc/apt/sources.list
+RUN wget -qO - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add - 
 
-# Update repos
+# Upgrade / update the whole system, and pull from the new PPAs
 RUN apt-get update -y
-
-# Upgrade and install
 RUN apt-get upgrade -y
-RUN apt-get install -y git man curl build-essential cmake emacs-nox screen dos2unix vim python2.7 python-matplotlib clang-6.0 libclang-common-6.0-dev libclang-6.0-dev libclang1-6.0 libclang1-6.0-dbg libllvm6.0 libllvm6.0-dbg lldb-6.0 llvm-6.0 llvm-6.0-dev llvm-6.0-runtime clang-format-6.0 python-clang-6.0 lld-6.0 g++-multilib gdb libevent-dev
+
+# Install a large set of build tools, including gcc and llvm
+RUN DEBIAN_FRONTEND=noninteractive apt install -y gnupg2 gnupg gnupg1 git man curl build-essential cmake emacs-nox screen dos2unix vim g++-multilib gdb libllvm10 llvm-10 llvm-10-dev llvm-10-doc llvm-10-examples llvm-10-runtime clang-10 clang-tools-10 clang-10-doc libclang-common-10-dev libclang-10-dev libclang1-10 clang-format-10 clangd-10 libfuzzer-10-dev lldb-10 lld-10 libc++-10-dev libc++abi-10-dev libomp-10-dev libmemcached-tools libevent-dev
+
+# Set the working directory
+WORKDIR /root
 
 # To use this Dockerfile
-# 1 - Make an image named llvm-6.0
+# 1 - Make an image named llvm-10
 #     - Go to the folder where this Dockerfile exists
-#     - sudo docker build -t llvm-6.0 .
+#     - sudo docker build -t llvm-10 .
 #       - Note: you don't need the 'sudo' part on Windows
 # 2 - Set up a working folder on your host machine
 #     - mkdir my-llvm-work
 # 3 - Launch an interactive container, and mount your working folder
-#     - docker run --privileged --name llvm-dev -v /path/to/my-llvm-work:/root -it llvm-6.0
-# 4 - That's it. You should have an interactive shell to your container
+#     - docker run --privileged --rm -v /path/to/my-llvm-work:/root -it llvm-10

@@ -1,0 +1,12 @@
+[information]
+exe: build_rtm/vacation
+shown_name: stamp-vacation_low
+arguments: "-n2 -q90 -u98 -r4194304 -t16777216  -c$THREADS$"
+
+[environment]
+
+[sampling]
+cycles?precise--2: 40000000
+RTM_RETIRED?ABORTED: 1000
+RTM_RETIRED?COMMIT: 1000
+MEM_UOPS_RETIRED?ALL_STORES: 1000000

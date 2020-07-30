@@ -1,0 +1,5 @@
+.vscode/
+local/
+.DS_Store
+.idea/
+obj64/

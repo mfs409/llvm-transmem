@@ -1,0 +1,13 @@
+[information]
+exe: build_rtm/ssca2
+shown_name: stamp-ssca2
+arguments: "-s22 -i1.0 -u1.0 -l3 -p3 -t$THREADS$"
+
+[environment]
+
+
+[sampling]
+cycles?precise--2: 10000000
+RTM_RETIRED?ABORTED: 500
+RTM_RETIRED?COMMIT: 10000
+MEM_UOPS_RETIRED?ALL_STORES: 2000000
