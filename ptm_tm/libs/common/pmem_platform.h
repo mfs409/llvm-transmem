@@ -31,11 +31,9 @@ class eADR {
 public:
   /// clwb is the instruction for flushing a cache line to the memory
   /// controller.  In ADR, it corresponds 1:1 with the clwb assembly instruction
-  static void clwb(void *addr) {
-    asm volatile(".byte 0x66; xsaveopt %0" : "+m"(*(volatile char *)(addr)));
-  }
+  static void clwb(void *addr) {}
 
   /// sfence is the instruction for ensuring store-store ordering.  In eADR, it
   /// is a no-op
-  static void sfence() { _mm_sfence(); }
+  static void sfence() {}
 };
